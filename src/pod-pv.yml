@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container
+  labels:
+    name: myVolumePod
+spec:
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: myclaim
+  containers: 
+  - name : pravesh-nginx
+    image: nginx
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports: 
+     - containerPort: 8080
+    volumeMounts:
+      - mountPath: "/usr/share/nginx/html"
+        name: task-pv-storage

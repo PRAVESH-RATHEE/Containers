@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: environmental-configmap
+data:
+  DEMO_GREETING: "Hello from Pravesh"
+  DEMO_FAREWELL: "BYE BYE"

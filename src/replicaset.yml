@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: helloworld-container-replicas
+  labels:
+    app: helloworld
+spec:
+  replicas: 10
+  selector: 
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: pravesh-k8sdemo-replicas
+        image: arjunachari12/k8s-demo
+        ports:
+        - name: container-port
+          containerPort: 3000
